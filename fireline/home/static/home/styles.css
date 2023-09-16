@@ -595,6 +595,109 @@
     justify-content: center;
     align-items: center;
   }
+
+  .mapss {
+    background: #131313;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .mapss h1 {
+    background-color: #ff8177;
+    background-image: linear-gradient(to right, #ff0844 0%, #f7673c 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    margin-bottom: 5rem;
+    font-size: 2.5rem;
+  }
+
+  .foots {
+    background: #131313;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10rem 0;
+  }
+
+  .foots h1 {
+    background-color: #ff8177;
+    display: inline-flex;
+    background-image: linear-gradient(to right, #ff0844 0%, #f7673c 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    margin-bottom: 5rem;
+    font-size: 2.5rem;
+  }
+
+  .footer__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    padding-left: 50px;
+  }
+  
+  .footer__card {
+    margin: 10px;
+    height: 425px;
+    width: 300px;
+    border-radius: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    background-image: linear-gradient(to right, #ff8502 0%, #fc00ff 100%);
+    transition: 0.3s ease-in;
+  }
+  
+  
+  .footer__card h2 {
+    text-align: center;
+  }
+  
+  .footer__card p {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 20px;
+  }
+  
+  .footer__btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  
+  .footer__card button {
+    color: #fff;
+    padding: 14px 24px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background: #131313;
+    font-size: 1rem;
+  }
+  
+  .footer__card button:hover {
+    cursor: pointer;
+  }
+  
+  .footer__card:hover {
+    transform: scale(1.075);
+    transition: 0.3s ease-in;
+    cursor: pointer;
+  }
   
   #footer__logo {
     color: #fff;
@@ -644,7 +747,7 @@
   }
   
   .social__icon--link {
-    color: #fff;
+    color: rgb(255, 255, 255);
     font-size: 24px;
   }
   
