@@ -27,12 +27,6 @@ def prediction_data() -> dict[List]:
     fire_lat = []
     i = 0
     for fire in data:
-<<<<<<< Updated upstream
-        fire_location = {"NAME": fire["FIRE_NAME"], "YEAR": fire["FIRE_YEAR"], "STATE": fire["STATE"], "LONG": fire["LONGITUDE"], "LAT": fire["LATITUDE"]}
-        fire_list.append(fire_location)
-    return fire_list
-
-=======
         if i > 500:
             break
 
@@ -46,4 +40,3 @@ def prediction_data() -> dict[List]:
     fire_dict["LAT"] = fire_lat
 
     return fire_dict
->>>>>>> Stashed changes
