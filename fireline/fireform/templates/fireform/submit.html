@@ -1,0 +1,11 @@
+<div class="form-container">
+    <h2>Upload Image</h2>
+    <form action="{% url 'fireform:new' %}" method="post">
+        
+        {% csrf_token %}
+        
+        {{form}}
+
+        <button type="submit">Report Fire</button>
+    </form>
+</div>
