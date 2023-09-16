@@ -10,9 +10,12 @@ query = {"FIRE_NAME": {"$exists": True}}
 def map_data():
     data = records.find(query)
     fire_list = []
+    i = 0
     for fire in data:
+        if i > 500:
+            break;
         fire_location = {"NAME": fire["FIRE_NAME"], "YEAR": fire["FIRE_YEAR"], "STATE": fire["STATE"], "LONG": fire["LONGITUDE"], "LAT": fire["LATITUDE"]}
         fire_list.append(fire_location)
-
+    return fire_list
 def main():
-    map_data()
+    fires = map_data()
