@@ -88,6 +88,15 @@
         var points = [[latitude1, longitude1], [latitude2, longitude2], [latitude2-15, longitude2-5], /* more points */];
         drawPolygon(points);
 
+        var locations = {{ fireList|safe }};
+        
+        // Loop through the Python data and add markers to the map
+        locations.forEach(function(location) {
+            L.marker([location.LAT, location.LONG], {icon: customIcon}).addTo(map)
+                .bindPopup("Fire " + location.NAME + " ravaged the state of " + location.STATE + " in " + location.YEAR)
+                .openPopup;
+        });
+
     </script>
 </body>
 

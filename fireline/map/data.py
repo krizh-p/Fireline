@@ -1,6 +1,6 @@
 from pymongo import MongoClient
-import sklearn
-from sklearn import linear_model
+# import sklearn
+# from sklearn import linear_model
 
 client = MongoClient("mongodb+srv://sabdulb:sabdulb@fireeye.aw4lhpu.mongodb.net/")
 db = client.get_database('wildfire_db')
@@ -16,6 +16,7 @@ def map_data():
             break;
         fire_location = {"NAME": fire["FIRE_NAME"], "YEAR": fire["FIRE_YEAR"], "STATE": fire["STATE"], "LONG": fire["LONGITUDE"], "LAT": fire["LATITUDE"]}
         fire_list.append(fire_location)
+        i += 1
     return fire_list
 def main():
-    fires = map_data()
+    map = map_data()
