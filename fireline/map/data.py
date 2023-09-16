@@ -13,5 +13,3 @@ fire_list = []
 for fire in data:
     fire_location = {"NAME": fire["FIRE_NAME"], "YEAR": fire["FIRE_YEAR"], "STATE": fire["STATE"], "LONG": fire["LONGITUDE"], "LAT": fire["LATITUDE"]}
     fire_list.append(fire_location)
-
-print(fire_list)
