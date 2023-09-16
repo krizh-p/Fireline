@@ -1,46 +1,35 @@
 from typing import List
 import numpy as np
 import sklearn
+import pandas as pd
 from sklearn import linear_model
+import matplotlib.pyplot as plot
 import data
 
 #Train AI with Linear Regression
-def train(prediction_data: List[dict]):
+def train(prediction_data: dict[List]):
     #Create list of Long's & Lat's
-    long_list = []
-    lat_list = []
-    for fire in prediction_data:
-        #MAYBE SPLIT UP DATA BASED ON closeness (by 10)
-        long_list.append([fire["LONG"]])
-        lat_list.append([fire["LAT"]])
-    
-    print(f"Long List: {long_list}\n\n Latt List: {lat_list}")
+    dataframe = pd.DataFrame(prediction_data)
+    dataframe = dataframe[["LONG", "LAT"]]
+    #X-coordinated(Longitude)
+    X = dataframe[["LONG"]]
+    #Y-coordinate(Latitude)
+    Y = dataframe["LAT"]
 
-    #Convert to NumPy Array (Enhanced Array)
-    longitude = np.array(long_list)
-    latitude = np.array(lat_list)
-
-    #Set values for training & testing w/ long and lat
-    long_train, long_test, lat_train, lat_test = sklearn.model_selection.train_test_split(longitude, latitude, test_size = 0.1)
-
-    #Create LinearRegression Model
+    # Create LinearRegression Model
     model = linear_model.LinearRegression()
-    #Train model
-    model.fit(long_train, lat_train)
-    #Accuracy
-    accuracy = model.score(long_test, lat_test)
-    print(accuracy)
 
-    #Make Prediction Longitude
-    spread = model.predict(long_test)
-    for i in range(10):
-        print(f"Prediction Long: {spread[i]}\nLatitude Test:  {lat_test[i]} \nLongitude Test: {long_test[i]}\n") 
-    
-    #Make Prediction Longitude
-    spread1 = model.predict(lat_test)
-    for i in range(10):
-        print(f"Prediction Lat: {spread1[i]}\nLatitude Test:  {lat_test[i]} \nLongitude Test: {long_test[i]}\n") 
+    #Train AI
+    model.fit(X, Y)
 
+    #Visualize
+    plot.scatter(X, Y, label='Data Points')
+    plot.plot(X, model.predict(X), color='red', label='Linear Regression Line')
+    plot.xlabel('X-coordinate')
+    plot.ylabel('Y-coordinate')
+    plot.legend()
+    plot.title('Linear Regression for Coordinates')
+    plot.show()
 
 def main():
     spread = data.prediction_data()
