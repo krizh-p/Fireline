@@ -15,7 +15,7 @@
     font-size: 1.2rem;
     position: sticky;
     top: 0;
-    /* z-index: 999;  */
+    z-index: 999;
   }
   
   .navbar__container {
@@ -234,26 +234,6 @@
     -mo-text-fill-color: transparent;
   }
   
-  /* .hero__description {
-    font-size: 40px;
-    background: #da22ff;
-    background: -webkit-linear-gradient(
-      to right,
-      #9114ff,
-      #da22ff
-    );
-    background: linear-gradient(
-      to right,
-      #8f0eff,
-      #da22ff
-    ); 
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-  } */
-  
   .highlight {
     border-bottom: 4px solid rgb(132, 0, 255);
   }
@@ -352,7 +332,7 @@
     background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
     padding: 20px 60px;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     margin-top: 2rem;
     cursor: pointer;
     position: relative;
@@ -376,7 +356,7 @@
     height: 100%;
     background: #ff1ead;
     transition: all 0.35s;
-    border-radius: 4px;
+    border-radius: 20px;
   }
   
   .main__btn:hover {
@@ -395,17 +375,18 @@
     margin: 10px;
     height: 500px;
     width: 500px;
-    border-radius: 4px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: #fff;
-    background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+    background-image: linear-gradient(to right, #ec6b01 0%, #fc00ff 100%);
   }
   
   .fa-layer-group,
-  .fa-users {
-    font-size: 14rem;
+  .fa-users,
+  .fas{
+    font-size: 15rem;
   }
   
   #card-2 {
@@ -508,17 +489,12 @@
     font-size: 2.5rem;
   }
   
-  .maps__wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-  }
   
   .maps__card {
     margin: 10px;
     height: 425px;
-    width: 300px;
-    border-radius: 4px;
+    width: 600px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -527,31 +503,6 @@
     transition: 0.3s ease-in;
   }
   
-  .maps__card:nth-child(2) {
-    background: #1fa2ff; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to right,
-      #a6ffcb,
-      #12d8fa,
-      #1fa2ff
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-      to right,
-      #a6ffcb,
-      #12d8fa,
-      #1fa2ff
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  }
-  
-  .maps__card:nth-child(3) {
-    background-image: linear-gradient(
-      -225deg,
-      #231557 0%,
-      #44107a 29%,
-      #ff1361 67%,
-      #fff800 100%
-    );
-  }
   
   .maps__card h2 {
     text-align: center;
@@ -568,13 +519,14 @@
     justify-content: center;
     margin-top: 16px;
   }
+
   
   .maps__card button {
     color: #fff;
     padding: 14px 24px;
     border: none;
     outline: none;
-    border-radius: 4px;
+    border-radius: 20px;
     background: #131313;
     font-size: 1rem;
   }
@@ -588,6 +540,13 @@
     transition: 0.3s ease-in;
     cursor: pointer;
   }
+
+  .image-upload{
+    height: 200px;
+    width: 200px;
+    justify-content: center;
+    display: grid;
+  }
   
   @media screen and (max-width: 1300px) {
     .maps__wrapper {
@@ -599,6 +558,32 @@
     .maps__wrapper {
       grid-template-columns: 1fr;
     }
+  }
+
+
+  .file-upload {
+    height: 100px;
+    position: relative;
+    display: inline-block;
+    margin-top: 50px;
+  }
+
+  .custom-button {
+    background-image: linear-gradient(to right, #de6b00 0%, #fc00ff 100%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .hidden-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
   }
   
   /* Footer CSS */
