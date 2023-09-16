@@ -13,11 +13,12 @@ def map_data() -> List[dict]:
     i = 0
     for fire in data:
         if i > 500:
-            break
+          break
         fire_location = {"NAME": fire["FIRE_NAME"], "YEAR": fire["FIRE_YEAR"], "STATE": fire["STATE"], "LONG": fire["LONGITUDE"], "LAT": fire["LATITUDE"]}
         fire_list.append(fire_location)
         i += 1
     return fire_list
+ 
 
 def prediction_data() -> List[dict]:
     data = records.find(query)
@@ -26,3 +27,4 @@ def prediction_data() -> List[dict]:
         fire_location = {"NAME": fire["FIRE_NAME"], "YEAR": fire["FIRE_YEAR"], "STATE": fire["STATE"], "LONG": fire["LONGITUDE"], "LAT": fire["LATITUDE"]}
         fire_list.append(fire_location)
     return fire_list
+
