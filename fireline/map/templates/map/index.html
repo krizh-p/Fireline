@@ -20,7 +20,7 @@
             <br>
             <br>
             <p style="color: #ff8177; font-size: 2em;">
-                Here is a visualization of a select few.
+                Here is a visualization of less than 1/1000000 of them.
             </p>
         </p>
     </div>
@@ -34,7 +34,6 @@
         iconSize: [25, 25]
     });
 
-
     var maxBounds = [
         [5.499550, -167.276413], //Southwest
         [83.162102, -52.233040] //Northeast
@@ -45,53 +44,25 @@
         'maxBounds': maxBounds
     }).fitBounds(maxBounds);
 
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.png', {
         attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
         maxZoom: 19,
     }).addTo(map);
 
-    latitude1 = 40.03694444
-    longitude1 = -121.0058333
-    latitude2 = 60.03694444
-    longitude2 = -101.0058333
 
-    var marker = L.marker([latitude1, longitude1], { icon: customIcon }).addTo(map)
-        .bindPopup("This fire affected 5 people")
-    var marker2 = L.marker([latitude2, longitude2], { icon: customIcon }).addTo(map)
-        .bindPopup("Woodland Fire, 2003")
-    var marker3 = L.marker([latitude2 - 15, longitude2 - 5], { icon: customIcon }).addTo(map)
-        .bindPopup("Woodland Fire, 2003")
-    // .openPopup()
+    // function drawPolygon(points) {
+    //     // Convert the points to an array of Leaflet LatLng objects
+    //     var latLngs = points.map(function (point) {
+    //         return L.latLng(point[0], point[1]);
+    //     });
 
-    var point1 = [latitude1, longitude1];
+    //     // Create a polygon and add it to the map
+    //     var polygon = L.polygon(latLngs, { color: 'red' }).addTo(map);
+    // }
 
-    var point2 = [latitude2, longitude2];
-
-    // Calculate the center and radius of the circle
-    // var center = [(latitude1 + latitude2) / 2, (longitude1 + longitude2) / 2];
-    // var radius = map.distance(point1, point2) / 2;
-
-    // Create a circle and add it to the map
-    // var circle = L.circle(center, { radius: radius }).addTo(map);
-
-    // Create a polyline and add it to the map
-    // var polyline = L.polyline([[la   titude1, longitude1], [latitude2, longitude2]], { color: 'red' }).addTo(map);
-
-
-    function drawPolygon(points) {
-        // Convert the points to an array of Leaflet LatLng objects
-        var latLngs = points.map(function (point) {
-            return L.latLng(point[0], point[1]);
-        });
-
-        // Create a polygon and add it to the map
-        var polygon = L.polygon(latLngs, { color: 'red' }).addTo(map);
-    }
-
-    // Example usage:
-    var points = [[latitude1, longitude1], [latitude2, longitude2], [latitude2 - 15, longitude2 - 5], /* more points */];
-    drawPolygon(points);
+    // // Example usage:
+    // var points = [[latitude1, longitude1], [latitude2, longitude2], [latitude2 - 15, longitude2 - 5], /* more points */];
+    // drawPolygon(points);
 
     var locations = {{ fireList| safe }};
 
