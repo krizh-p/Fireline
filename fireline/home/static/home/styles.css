@@ -521,7 +521,10 @@
   justify-content: center;
   margin-top: 16px;
 }
-
+.maps__btn a {
+  color: #fff;
+  text-decoration: none;
+}
 
 .maps__card button {
   color: #fff;
