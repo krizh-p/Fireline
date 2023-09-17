@@ -23,10 +23,10 @@ def train(prediction_data: dict[List]):
     #Create list of predicted points
     points = []
     num_predicts = 3
-    for i in range(-1, -1*num_predicts):
+    for i in range(-1, -1*num_predicts,-1):
         points.append({
-            "LONG" : X.values[i],
+            "LONG" : X.values[i][0],
             "LAT" : predictions[i],
-            "NAME": f"User {i}"
+            "NAME": f"User {abs(i)}"
         })
     return points
