@@ -3,52 +3,118 @@
 
 {% block content %}
 
-    <!-- Hero Section -->
-    <div class="hero" id="home">
-      <div class="hero__container">
-        <h1 class="hero__heading">Welcome to <span>FireLine</span></h1>
-        <button class="main__btn"><a href="#about">Explore</a></button> <!-- linked to about section when click on explore -->
-      </div>
-    </div>
+<!-- Hero Section -->
+<div class="hero" id="home">
+  <div class="hero__container">
+    <h1 class="hero__heading">Welcome to <span>FireLine</span></h1>
+    <button class="main__btn"><a href="#about">Explore</a></button>
+    <!-- linked to about section when click on explore -->
+  </div>
+</div>
 
-    <!-- About Section -->
-    <div class="main" id="about">
-      <div class="main__container">
-        <div class="main__img--container">
-          <div class="main__img--card">
-            <div class="fire">
-              <i class="fas fa-solid fa-fire"></i>
-            </div>
-          </div>
-        </div>
-        <div class="main__content">
-          <h1>What is FireLine?</h1>
-          <p>At FireLine, our mission is to harness the power of data and machine learning to enhance awareness and understanding of wildfires in North America.</p> <br>
-          <p> We believe that by providing access to 1.88 million meticulously collected data logs and offering cutting-edge image analysis, we can make a significant impact on wildfire prevention, and analysis.</p> <br>
-          <p> Our commitment is twofold with data driven visualization and machine learning for community driven fire detection and Prediction</p>
+<!-- About Section -->
+<div class="main" id="about">
+  <div class="main__container">
+    <div class="main__img--container">
+      <div class="main__img--card">
+        <div class="fire">
+          <i class="fas fa-solid fa-fire"></i>
         </div>
       </div>
     </div>
-
-    <!-- Maps Section -->
-    <div class="maps" id="ddd">
-      <h1>Services</h1>
+    <div class="main__content">
+      <h1>What is FireLine?</h1>
+      <p>At FireLine, our mission is to harness the power of data and machine learning to enhance awareness and
+        understanding of fires in North America.</p> <br>
+      <p> We believe that by providing access to 1.88 million meticulously collected data logs and offering cutting-edge
+        image analysis, we can make a significant impact on fire prevention and analysis.</p> <br>
+      <p> Our commitment is twofold with data driven visualization and machine learning for community driven fire
+        detection and Prediction</p>
     </div>
-    <div class="maps" id="maps">
-      <div class="maps__wrapper">
-        <div class="maps__card">
-          <h2>Check out our map!</h2>
-          <p>Built by you, for you.</p>
-          <div class="maps__btn"><button><a href="{% url 'map:index' %}">Open</a></button></div>
-        </div>
-      </div>
+  </div>
+</div>
 
-      <div class="maps__card">
-        <h2>Smell Smoke?</h2>
-        <p>Upload an image!</p>
-        <div class="maps__btn"><button><a href="{% url 'map:live' %}">Open</a></button></div>
-      </div>
-    
+<!-- Maps Section -->
+<div class="maps" id="ddd">
+  <h1>Services</h1>
+</div>
+<div class="maps" id="maps">
+  <div class="maps__wrapper">
+    <div class="maps__card">
+      <h2>Check out our map!</h2>
+      <p>Built by you, for you.</p>
+      <div class="maps__btn"><button><a href="{% url 'map:index' %}">Open</a></button></div>
     </div>
+  </div>
 
+  <div class="maps__card">
+    <h2>Smell Smoke?</h2>
+    <p>Upload an image!</p>
+    <div class="maps__btn"><button><a href="{% url 'map:live' %}">Open</a></button></div>
+  </div>
+
+</div>
+
+
+<!-- Footer Section -->
+<div class="mapss" id="mapss">
+  <h1>Meet the Team</h1>
+</div>
+
+<div class="foots" id="foots">
+  <div class="footer__wrapper">
+    <div class="footer__card">
+      <h2>Krishna Purohit</h2>
+      <p>Senior @ George Mason University, majoring in Computer Science</p>
+      <div class="footer__btn">
+        <button>
+          <a href="https://www.linkedin.com/in/krizhp/" class="social__icon--link">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="footer__wrapper">
+    <div class="footer__card">
+      <h2>Sohil Shah</h2>
+      <p>Junior @ George Mason University, majoring in Computer Science</p>
+      <div class="footer__btn">
+        <button>
+          <a href="http://www.linkedin.com/in/sohil-shah-1b1023122" class="social__icon--link">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__wrapper">
+    <div class="footer__card">
+      <h2>Salem Abdul-Baki</h2>
+      <p>Junior @ George Mason University, majoring in Computer Science</p>
+      <div class="footer__btn">
+        <button>
+          <a href="https://www.linkedin.com/in/salem-abdul-baki-969326288/" class="social__icon--link">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__wrapper">
+    <div class="footer__card">
+      <h2>Devon Daniels</h2>
+      <p>Junior @ George Mason University, majoring in Computer Science</p>
+      <div class="footer__btn">
+        <button>
+          <a href="https://www.linkedin.com/in/devon-daniels-580832262/" class="social__icon--link">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
