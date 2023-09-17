@@ -1,6 +1,9 @@
 from django import forms
 from django.shortcuts import render
-from . import data
+from . import data, prediction
+
+#Trained Data Predictions
+predictedPoints = prediction.train(data.prediction_data())
 
 class NewTaskForm(forms.Form):
     title = forms.CharField(label="Title")
@@ -14,10 +17,11 @@ def index(request):
     context = {'fireList':fireList}
     return render(request, "map/index.html", context)
 
-def live(request):
-    return render(request, "map/live.html", {
+def upload(request):
+    return render(request, "map/upload.html", {
         "form" : NewTaskForm()
     })
 
-def new(request):
-    return "Test"
+def live(request):
+    predictedPoints = {'fireList' : 'ADD FIRELIST HERE'}
+    return render(request, "map/live.html", predictedPoints)

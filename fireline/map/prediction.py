@@ -1,10 +1,7 @@
 from typing import List
-import numpy as np
-import sklearn
 import pandas as pd
 from sklearn import linear_model
-import matplotlib.pyplot as plot
-import data
+
 
 #Train AI with Linear Regression
 def train(prediction_data: dict[List]):
@@ -19,21 +16,17 @@ def train(prediction_data: dict[List]):
     # Create LinearRegression Model
     model = linear_model.LinearRegression()
 
-    #Train AI
+    #Train AI & Predict
     model.fit(X, Y)
-
-    #Visualize
-    plot.scatter(X, Y, label='Data Points')
-    plot.plot(X, model.predict(X), color='red', label='Linear Regression Line')
-    plot.xlabel('X-coordinate')
-    plot.ylabel('Y-coordinate')
-    plot.legend()
-    plot.title('Linear Regression for Coordinates')
-    plot.show()
-
-def main():
-    spread = data.prediction_data()
-    prediction = train(spread)
-
-if __name__ == '__main__':
-    main()
+    predictions = model.predict(X)
+    
+    #Create list of predicted points
+    points = []
+    num_predicts = 3
+    for i in range(-1, -1*num_predicts):
+        points.append({
+            "LONG" : X.values[i],
+            "LAT" : predictions[i],
+            "NAME": f"User {i}"
+        })
+    return points

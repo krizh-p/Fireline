@@ -7,106 +7,72 @@
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+{% endblock %}
+
+{% block content %}
+    <div class="footer__container" style="background-color: #131313;">
+        <div class="hero__heading">
+            <span>Live Map</span>
+            <!-- Fire History -->
+        </div>
+        <p class="hero__description" style="max-width: 50%; color: #ee0979; font-size: 2em;">
+            Using a proprietary linear regression-based machine learning algorithm, we are mapping
+            and predicting the spread of fires in real time.
+            <br>
+            <br>
+            <p style="color: #ff8177; font-size: 2em;">
+                This map is dynamically generated for users, by users.
+            </p>
+        </p>
+    </div>
+
+<div class="map-container">
+    <div id="map" style="height: 75vh; width: 75vh;"></div>
+</div>
 <script>
-    // Add this JavaScript code to your existing script.js or create a new one
-    const imageDropZone = document.getElementById('imageDropZone');
-    const imageInput = document.getElementById('id_image');
-
-    imageDropZone.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        imageDropZone.classList.add('dragover');
+    var customIcon = L.icon({
+        iconUrl: "{% static 'map/marker.png' %}",
+        iconSize: [25, 25]
     });
 
-    imageDropZone.addEventListener('dragleave', () => {
-        imageDropZone.classList.remove('dragover');
-    });
+    var maxBounds = [
+        [5.499550, -167.276413], //Southwest
+        [83.162102, -52.233040] //Northeast
+    ];
+    var map = L.map('map', {
+        'center': [0, 0],
+        'zoom': 123,
+        'maxBounds': maxBounds
+    }).fitBounds(maxBounds);
 
-    imageDropZone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        imageDropZone.classList.remove('dragover');
+    L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.png', {
+        attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+    }).addTo(map);
 
-        const files = e.dataTransfer.files;
-        imageInput.files = files;
-    });
 
-    imageInput.addEventListener('change', () => {
-        const files = imageInput.files;
-        // You can also handle the selected file here if needed
+    // function drawPolygon(points) {
+    //     // Convert the points to an array of Leaflet LatLng objects
+    //     var latLngs = points.map(function (point) {
+    //         return L.latLng(point[0], point[1]);
+    //     });
+
+    //     // Create a polygon and add it to the map
+    //     var polygon = L.polygon(latLngs, { color: 'red' }).addTo(map);
+    // }
+
+    // // Example usage:
+    // var points = [[latitude1, longitude1], [latitude2, longitude2], [latitude2 - 15, longitude2 - 5], /* more points */];
+    // drawPolygon(points);
+
+    // var predictedPoints = {{ predictedPoints| safe }};
+
+    // Loop through the Python data and add markers to the map
+    locations.forEach(function (location) {
+        L.marker([location.LAT, location.LONG], { icon: customIcon }).addTo(map)
+            .bindPopup("Fire " + location.NAME + " ravaged the state of " + location.STATE + " in " + location.YEAR)
+            .openPopup;
     });
 
 </script>
-{% endblock %}
-
-<!-- Inside head -->
-{% block content %}
-
-<!-- Info text -->
-<div class="hero__container" style="background-color: #131313; max-width: 100vw;">
-    <div class="hero__heading">
-        <span>Spot a Fire?</span>
-    </div>
-    <p class="hero__description" style="max-width: 50%; color: #ee0979; font-size: 2em;">
-        Based on interviews, firefighters have highlighted that one of the most
-        apparent areas for improvement lies in the fact that they often miss some
-        of the most crucial early stages of fires, which are left unattended until
-        they physically arrive at the location.
-
-        <br>
-        <br>
-
-        This delay in response time can vary
-        significantly and poses a considerable challenge in effectively combating and containing fires.
-
-        <br>
-        <br>
-
-    <p style="color: #ff8177; font-size: 2em;">
-        Combat that by reporting fires, and in turn predicting their spread in real time.
-    </p>
-    </p>
-
-</div>
-
-<!-- <div class="hero__container" style="background-color: #131313; max-width: 100vw;">
-    <div class="hero__heading">
-        <span style="margin: 5em;">Report Fire</span>
-    </div>
-    <form action="{% url 'map:new' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.title.label_tag }}
-        {{ form.title }}
-        {{ form.content.label_tag }}
-        {{ form.content }}
-
-        <div class="drop-zone" id="imageDropZone">
-            <p>Drag &amp; Drop an image here or click to select</p>
-            {{ form.image }}
-        </div>
-
-        <button type="submit">Create Post</button>
-    </form>
-
-</div> -->
-<!-- Features Section -->
-<div class="main" id="sign-up">
-    <div class="main__container">
-        <div class="main__content">
-            <h1>Report a fire</h1>
-            <h2>Upload an image</h2>
-            <p>Visualize how the fire would spread</p>
-            <div class="file-upload">
-                <form>
-                    {% csrf_token %}
-                    <label for="file-input" class="custom-button" style="font-size: 2em;">Upload File</label>
-                    <input type="file" id="file-input" class="hidden-input" style="size: 51em;">
-                </form>
-            </div>
-        </div>
-        <div class="main__img--container">
-            <div class="main__img--card" id="card-2">
-                <i class="fas fa-solid fa-upload"></i>
-            </div>
-        </div>
-    </div>
-</div>
 {% endblock %}
