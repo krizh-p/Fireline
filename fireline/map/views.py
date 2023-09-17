@@ -1,6 +1,9 @@
 from django import forms
 from django.shortcuts import render
-from . import data
+from . import data, prediction
+
+#Trained Data Predictions
+predictedPoints = prediction.train(data.prediction_data())
 
 class NewTaskForm(forms.Form):
     title = forms.CharField(label="Title")
