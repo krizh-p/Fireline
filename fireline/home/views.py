@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from . import data, prediction
+from ..map import data, prediction
 
 #Trained Data Predictions
 predictedPoints = prediction.train(data.prediction_data)
