@@ -28,4 +28,4 @@ def live(request):
 
 def new(request):
     if request.method == "POST":
-        
+        return
