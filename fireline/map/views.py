@@ -21,4 +21,3 @@ def live(request):
 
 def new(request):
     return "Test"
-

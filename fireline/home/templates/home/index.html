@@ -23,41 +23,32 @@
         </div>
         <div class="main__content">
           <h1>What is FireLine?</h1>
-          <p>help detect fires using Ai.</p>
+          <p>At FireLine, our mission is to harness the power of data and machine learning to enhance awareness and understanding of wildfires in North America.</p> <br>
+          <p> We believe that by providing access to 1.88 million meticulously collected data logs and offering cutting-edge image analysis, we can make a significant impact on wildfire prevention, and analysis.</p> <br>
+          <p> Our commitment is twofold with data driven visualization and machine learning for community driven fire detection and Prediction</p>
         </div>
       </div>
     </div>
 
     <!-- Maps Section -->
+    <div class="maps" id="ddd">
+      <h1>Services</h1>
+    </div>
     <div class="maps" id="maps">
-      <h1>Maps</h1>
       <div class="maps__wrapper">
         <div class="maps__card">
           <h2>Check out our map!</h2>
-          <p>AI Powered Data Visualization</p>
-          <div class="maps__btn"><button>Open</button></div>
+          <p>Built by you, for you.</p>
+          <div class="maps__btn"><button><a href="{% url 'map:index' %}">Open</a></button></div>
         </div>
       </div>
-    </div>
 
-    <!-- Features Section -->
-    <div class="main" id="sign-up">
-      <div class="main__container">
-        <div class="main__content">
-          <h1>Detect a fire</h1>
-          <h2>Upload an image</h2>
-          <p>See how the fire would spread</p>
-          <div class="file-upload">
-            <label for="file-input" class="custom-button">Upload File</label>
-            <input type="file" id="file-input" class="hidden-input">
-          </div>
-        </div>
-        <div class="main__img--container">
-          <div class="main__img--card" id="card-2">
-            <i class="fas fa-solid fa-upload"></i>
-          </div>
-        </div>
+      <div class="maps__card">
+        <h2>Smell Smoke?</h2>
+        <p>Upload an image!</p>
+        <div class="maps__btn"><button><a href="{% url 'map:live' %}">Open</a></button></div>
       </div>
+    
     </div>
 
 {% endblock %}

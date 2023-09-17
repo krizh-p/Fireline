@@ -310,12 +310,12 @@
     background: #ff8177; /* fallback for old browsers */
     background: -webkit-linear-gradient(
       to right,
-      #9114ff,
+      #ff6f00,
       #da22ff
     ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(
       to right,
-      #8f0eff,
+      #ff9100,
       #da22ff
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size: 100%;
@@ -469,12 +469,15 @@
   /* maps Section */
   .maps {
     background: #131313;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
     padding: 10rem 0;
+    display:flex;
+  }
+
+  #ddd{
+    padding-bottom: 1px;
   }
   
   .maps h1 {
@@ -533,6 +536,7 @@
   
   .maps__card button:hover {
     cursor: pointer;
+    color: white;
   }
   
   .maps__card:hover {
