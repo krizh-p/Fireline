@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from Fireline.fireline.map import data, prediction
+from . import data, prediction
 
 #Trained Data Predictions
 predictedPoints = prediction.train(data.prediction_data)
