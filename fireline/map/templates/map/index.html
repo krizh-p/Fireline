@@ -74,4 +74,29 @@
     });
 
 </script>
+
+<div class="footer__container" style="background-color: #131313;">
+    <div class="hero__heading">
+        <span>Live Map</span>
+        <!-- Fire History -->
+    </div>
+    <p class="hero__description" style="color: #ee0979; font-size: 2em;">
+        See a fire? Visit our live map to see community tracked fires in real time!
+        <!-- <br>
+        <br>
+        <p style="color: #ff8177; font-size: 2em;">
+            Here is a visualization of less than 1/1000000 of them.
+        </p> -->
+    </p>
+    <br>
+    <br>
+
+    <button class="custom-button" style="font-size: 2em;" onclick="redirectToNewPage()">Live Map</button>
+    <script>
+        function redirectToNewPage() {
+            // Redirect to the new page when the button is clicked
+            window.location.href = "{% url 'map:live' %}";
+        }
+    </script>
+</div>
 {% endblock %}
