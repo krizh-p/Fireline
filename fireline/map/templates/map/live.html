@@ -51,19 +51,38 @@
     }).addTo(map);
 
 
-    // function drawPolygon(points) {
-    //     // Convert the points to an array of Leaflet LatLng objects
-    //     var latLngs = points.map(function (point) {
-    //         return L.latLng(point[0], point[1]);
-    //     });
+    function drawPolygon(points) {
+        // Convert the points to an array of Leaflet LatLng objects
+        var latLngs = points.map(function (point) {
+            return L.latLng(point[0], point[1]);
+        });
 
-    //     // Create a polygon and add it to the map
-    //     var polygon = L.polygon(latLngs, { color: 'red' }).addTo(map);
-    // }
+        // Create a polygon and add it to the map
+        var polygon = L.polygon(latLngs, { color: 'red' }).addTo(map);
+    }
 
-    // // Example usage:
-    // var points = [[latitude1, longitude1], [latitude2, longitude2], [latitude2 - 15, longitude2 - 5], /* more points */];
-    // drawPolygon(points);
+    latitude1 = 40.03694444
+    longitude1 = -121.0058333
+    latitude2 = 41.03694444
+    longitude2 = -120.0058333
+    
+    // Example usage:
+    var points = [[latitude1, longitude1],[latitude1+1, longitude1-1],[latitude1+2, longitude1-2], [latitude2, longitude2], [latitude2 - 1, longitude2 + 1], /* more points */];
+    drawPolygon(points);
+
+    var marker = L.marker([latitude1, longitude1], {icon: customIcon}).addTo(map)
+        .bindPopup("Submitted by anonymous user")
+        var marker = L.marker([latitude2, longitude2], {icon: customIcon}).addTo(map)
+        .bindPopup("Submitted by anonymous user")
+        var marker = L.marker([latitude1+1, longitude1-1], {icon: customIcon}).addTo(map)
+        .bindPopup("Submitted by anonymous user")
+        var marker = L.marker([latitude2-1, longitude2+1], {icon: customIcon}).addTo(map)
+        .bindPopup("Submitted by anonymous user")
+        var marker = L.marker([latitude1+2, longitude1-2], {icon: customIcon}).addTo(map)
+        .bindPopup("Submitted by anonymous user")
+        
+        var marker = L.marker([{{ longitude }}, {{ latitude }}], {icon: customIcon}).addTo(map)
+        .bindPopup("Submitted by anonymous user")
 
     // var predictedPoints = {{ predictedPoints| safe }};
 
@@ -73,6 +92,5 @@
             .bindPopup("Fire " + location.NAME + " ravaged the state of " + location.STATE + " in " + location.YEAR)
             .openPopup;
     });
-
 </script>
 {% endblock %}

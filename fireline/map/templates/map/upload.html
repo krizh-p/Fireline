@@ -8,6 +8,29 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
+    function submitForm() {
+        document.getElementById('upload-form').submit();
+    }
+    
+    document.addEventListener("DOMContentLoaded", () => {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var userLocation = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        };
+        document.getElementById('latitude').value = userLocation.latitude;
+        document.getElementById('longitude').value = userLocation.longitude;
+    });
+});
+
+function redirectToNewPage() {
+    document.getElementById('upload-form').submit();
+}
+
+</script>
+
+<script>
+
     // Add this JavaScript code to your existing script.js or create a new one
     const imageDropZone = document.getElementById('imageDropZone');
     const imageInput = document.getElementById('id_image');
@@ -95,10 +118,13 @@
             <h2>Upload an image</h2>
             <p>Visualize how the fire would spread</p>
             <div class="file-upload">
-                <form>
+                <form id="upload-form" action="{% url 'map:new' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <label for="file-input" class="custom-button" style="font-size: 2em;">Upload File</label>
-                    <input type="file" id="file-input" class="hidden-input" style="size: 51em;">
+                    <input type="file" id="file-input" name="image" class="hidden-input" style="size: 51em;"
+                        onchange="submitForm()">
+                        <input type="hidden" name="latitude" id="latitude">
+                        <input type="hidden" name="longitude" id="longitude">
                 </form>
             </div>
         </div>
