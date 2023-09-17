@@ -7,6 +7,34 @@
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+    // Add this JavaScript code to your existing script.js or create a new one
+    const imageDropZone = document.getElementById('imageDropZone');
+    const imageInput = document.getElementById('id_image');
+
+    imageDropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        imageDropZone.classList.add('dragover');
+    });
+
+    imageDropZone.addEventListener('dragleave', () => {
+        imageDropZone.classList.remove('dragover');
+    });
+
+    imageDropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        imageDropZone.classList.remove('dragover');
+
+        const files = e.dataTransfer.files;
+        imageInput.files = files;
+    });
+
+    imageInput.addEventListener('change', () => {
+        const files = imageInput.files;
+        // You can also handle the selected file here if needed
+    });
+
+</script>
 {% endblock %}
 
 <!-- Inside head -->
@@ -37,19 +65,48 @@
     </p>
     </p>
 
-
-    <div class="hero__container" style="background-color: #131313; max-width: 100vw;">
-        <div class="hero__heading">
-            <span style="margin: 5em;">Report Fire</span>
-        </div>
-        <form action="{% url 'map:new' %}" method="post">
-            {% csrf_token %}
-
-            {{form}}
-
-            <button type="submit">Create Post</button>
-        </form>
-    </div>
 </div>
 
+<!-- <div class="hero__container" style="background-color: #131313; max-width: 100vw;">
+    <div class="hero__heading">
+        <span style="margin: 5em;">Report Fire</span>
+    </div>
+    <form action="{% url 'map:new' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.title.label_tag }}
+        {{ form.title }}
+        {{ form.content.label_tag }}
+        {{ form.content }}
+
+        <div class="drop-zone" id="imageDropZone">
+            <p>Drag &amp; Drop an image here or click to select</p>
+            {{ form.image }}
+        </div>
+
+        <button type="submit">Create Post</button>
+    </form>
+
+</div> -->
+<!-- Features Section -->
+<div class="main" id="sign-up">
+    <div class="main__container">
+        <div class="main__content">
+            <h1>Report a fire</h1>
+            <h2>Upload an image</h2>
+            <p>Visualize how the fire would spread</p>
+            <div class="file-upload">
+                <form>
+                    {% csrf_token %}
+                    <label for="file-input" class="custom-button" style="font-size: 2em;">Upload File</label>
+                    <input type="file" id="file-input" class="hidden-input" style="size: 51em;">
+                </form>
+            </div>
+        </div>
+        <div class="main__img--container">
+            <div class="main__img--card" id="card-2">
+                <i class="fas fa-solid fa-upload"></i>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
