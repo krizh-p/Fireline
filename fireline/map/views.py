@@ -25,3 +25,7 @@ def upload(request):
 def live(request):
     predictedPoints = {'fireList' : 'ADD FIRELIST HERE'}
     return render(request, "map/live.html", predictedPoints)
+
+def new(request):
+    if request.method == "POST":
+        
