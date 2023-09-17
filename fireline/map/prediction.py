@@ -18,7 +18,6 @@ def train(prediction_data: dict[List]):
     dataframe = dataframe[["LONG", "LAT"]]
     #X-coordinated(Longitude)
     X = dataframe[["LONG"]]
-    print(type(X))
     #Y-coordinate(Latitude)
     Y = dataframe["LAT"]
 
