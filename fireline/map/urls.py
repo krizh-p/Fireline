@@ -5,6 +5,6 @@ app_name = "map"
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("live", views.live, name="live"),
-    path("test", views.new, name="new")
+    path("upload", views.upload, name="upload"),
+    path("live", views.live, name="live")
 ]

@@ -14,10 +14,11 @@ def index(request):
     context = {'fireList':fireList}
     return render(request, "map/index.html", context)
 
-def live(request):
-    return render(request, "map/live.html", {
+def upload(request):
+    return render(request, "map/upload.html", {
         "form" : NewTaskForm()
     })
 
-def new(request):
-    return "Test"
+def live(request):
+    predictedPoints = {'fireList' : 'ADD FIRELIST HERE'}
+    return render(request, "map/live.html", predictedPoints)
